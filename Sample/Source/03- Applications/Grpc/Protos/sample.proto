@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "Sample";
+
+package sample;
+
+service TestService {
+  rpc Test (TestRequest) returns (TestResponse);
+}
+
+message TestRequest {
+  string name = 1;
+}
+
+message TestResponse {
+  string name = 1;
+}

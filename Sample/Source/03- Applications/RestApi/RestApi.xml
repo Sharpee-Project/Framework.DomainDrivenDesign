@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RestApi</name>
+    </assembly>
+    <members>
+        <member name="M:Sample.Applications.RestApi.Controllers.V1.TestController.GetById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Get test by id
+            </summary>
+            <param name="id">id</param>
+            <param name="ct"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

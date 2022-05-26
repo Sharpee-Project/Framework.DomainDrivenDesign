@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Sample.Core.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Framework.Application\Framework.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\Framework.DomainModel.DependencyInjection\Framework.DomainModel.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\..\..\Framework.DomainModel\Framework.DomainModel.csproj" />
+  </ItemGroup>
+
+</Project>
