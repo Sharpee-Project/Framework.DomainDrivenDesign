@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sharpee.Framework.DomainModel</name>
+    </assembly>
+    <members>
+        <member name="T:Sharpee.Framework.DomainModel.Data.IUnitOfWork">
+            <summary>
+            Unit of work in order to encapsulate a transaction.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Data.IUnitOfWork.Commit">
+            <summary>
+            Commits changes into database.
+            </summary>
+            <returns>The number of state entries written to database.</returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Data.IUnitOfWork.CommitAsync">
+            <summary>
+            Commits changes into database asynchronously.
+            </summary>
+            <returns>A task that represents the asynchronous save operation. 
+            The task result contains the number of state entries written to database</returns>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1">
+            <summary>
+            Abstract class to be inherited by aggregate roots.
+            </summary>
+            <typeparam name="TId">Type of aggregate root Id</typeparam>
+        </member>
+        <member name="P:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.Id">
+            <summary>
+            Type of aggregate root Id
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.SetStateByEvent(Sharpee.Framework.DomainModel.Events.IEvent)">
+            <summary>
+            Identifies state if specified event occurs.
+            </summary>
+            <param name="event"></param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.ValidateInvariants">
+            <summary>
+            Validates invariants of the object.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.Emit(Sharpee.Framework.DomainModel.Events.IEvent)">
+            <summary>
+            Method to handle event.
+            </summary>
+            <param name="event">event</param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.GetEvents">
+            <summary>
+            Returns all object events.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.ClearEvents">
+            <summary>
+            Clears all object events.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.Equals(System.Object)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="obj">other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.GetHashCode">
+            <summary>
+            Returns object hash code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Entities.Entity`1">
+            <summary>
+            Abstract class to be inherited by entities.
+            </summary>
+            <typeparam name="TId">Type of aggregate root Id</typeparam>
+        </member>
+        <member name="P:Sharpee.Framework.DomainModel.Entities.Entity`1.Id">
+            <summary>
+            Type of entity Id
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.#ctor(System.Action{Sharpee.Framework.DomainModel.Events.IEvent})">
+            <summary>
+            Initiates an entity which gets its logic on event ocurring from outside.
+            </summary>
+            <param name="eventLogic">Logic to be happened when an event emits.</param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.SetStateByEvent(Sharpee.Framework.DomainModel.Events.IEvent)">
+            <summary>
+            Identifies state if specified event occurs.
+            </summary>
+            <param name="event"></param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.Emit(Sharpee.Framework.DomainModel.Events.IEvent)">
+            <summary>
+            Method to handle event.
+            </summary>
+            <param name="event">event</param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.Equals(System.Object)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="obj">other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.GetHashCode">
+            <summary>
+            Returns object hash code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Events.EventDispatcher">
+            <summary>
+            It can dispatch all events of an aggregate root.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Events.EventDispatcher.Dispatch``1(``0[])">
+            <summary>
+            Dispatches all events of an aggregate root.
+            </summary>
+            <typeparam name="TEvent"></typeparam>
+            <param name="events"></param>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Events.IEvent">
+            <summary>
+            Interface which every event have to implement it to be recognized as an event.
+            </summary>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Events.IEventDispatcher">
+            <summary>
+            Interface that should be implemented by every dispatcher class.
+            </summary>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Events.IEventHandler`1">
+            <summary>
+            Interface that every EventHandler class should implement it in order to be recognized as an event handler.
+            </summary>
+            <typeparam name="TEvent"></typeparam>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1">
+            <summary>
+            Abstract class to be inherited by value objects.
+            </summary>
+            <typeparam name="TValueObject">Type of value object</typeparam>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.Equals(System.Object)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="obj">other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.Equals(`0)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="other">other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.ObjectIsEqual(`0)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="otherObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.GetHashCode">
+            <summary>
+            Returns object hash code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.ObjectGetHashCode">
+            <summary>
+            Returns value object hash code.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

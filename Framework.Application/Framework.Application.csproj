@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+    <PackageId>Sharpee.Framework.Application</PackageId>
+    <Authors>Sharpee.Framework.Application</Authors>
+    <Product>Sharpee.Framework.Application</Product>
+    <Company>Sharpee.Framework.Application</Company>
+    <Version>1.0.0</Version>
+    <PackageTags>framework,application</PackageTags>
+    <Description>It is a framework to be used in endpoints developed using .net6.0 or upper.</Description>
+    <PackageIcon>DDD.png</PackageIcon>
+	<RootNamespace>Sharpee.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.Core.Api" Version="2.45.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DDD.png">
+      <Pack>True</Pack>
+    </None>
+    <None Include="DDD.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.DomainModel\Framework.DomainModel.csproj" />
+  </ItemGroup>
+
+</Project>

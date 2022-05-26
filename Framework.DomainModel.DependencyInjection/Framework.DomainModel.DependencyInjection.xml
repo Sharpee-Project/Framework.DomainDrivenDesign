@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.DomainModel.DependencyInjection</name>
+    </assembly>
+    <members>
+        <member name="M:Sharpee.Framework.DomainModel.DependencyInjection.Data.DataAccessLayerBootstrapper.UseDatabase``1(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            This method ensures database has been created and is always updated.
+            </summary>
+            <typeparam name="T">T is type of DbContext of the project.</typeparam>
+            <param name="app">app is ApplicationBuilder of the project.</param>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.DependencyInjection.Events.EventDispatcher">
+            <summary>
+            It can dispatch all events of an aggregate root.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.DependencyInjection.Events.EventDispatcher.Dispatch``1(``0[])">
+            <summary>
+            Dispatches all events of an aggregate root.
+            </summary>
+            <typeparam name="TEvent"></typeparam>
+            <param name="events"></param>
+        </member>
+    </members>
+</doc>

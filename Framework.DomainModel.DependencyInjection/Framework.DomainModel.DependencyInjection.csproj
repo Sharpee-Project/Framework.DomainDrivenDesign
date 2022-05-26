@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>Sharpee.Framework.DomainModel.DependencyInjection</PackageId>
+    <Authors>Sharpee.Framework.DomainModel.DependencyInjection</Authors>
+    <Company>Sharpee.Framework.DomainModel.DependencyInjection</Company>
+    <Product>Sharpee.Framework.DomainModel.DependencyInjection</Product>
+    <Description>It is used to inject depecdencies of the DomainModel project.</Description>
+    <PackageIcon>DDD.png</PackageIcon>
+    <PackageTags>domain,driven,design,model,dependency injection</PackageTags>
+    <Version>1.0.0</Version>
+	<RootNamespace>Sharpee.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>.\Framework.DomainModel.DependencyInjection.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Teronis.MSBuild.Packaging.ProjectBuildInPackage" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.DomainModel\Framework.DomainModel.csproj" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DDD.png">
+      <Pack>True</Pack>
+    </None>
+    <None Include="DDD.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

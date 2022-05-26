@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.DomainModel</name>
+    </assembly>
+    <members>
+        <member name="T:Sharpee.Framework.DomainModel.Data.IUnitOfWork">
+            <summary>
+            Unit of work in order to encapsulate a transaction.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Data.IUnitOfWork.BeginTransaction">
+            <summary>
+            Starts a new transaction.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Data.IUnitOfWork.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Starts a new transaction
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Data.IUnitOfWork.Commit">
+            <summary>
+            Commits changes into database.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Data.IUnitOfWork.CommitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Commits changes into database
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Data.IUnitOfWork.Rollback">
+            <summary>
+            Rollbacks transaction.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Data.IUnitOfWork.RollbackAsync(System.Threading.CancellationToken)">
+            <summary>
+            Rollbacks transaction.
+            </summary>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1">
+            <summary>
+            Abstract class to be inherited by aggregate roots.
+            </summary>
+            <typeparam name="TId">Type of aggregate root Id</typeparam>
+        </member>
+        <member name="P:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.Id">
+            <summary>
+            Type of aggregate root Id
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.SetStatesUsingEvents(Sharpee.Framework.DomainModel.Events.IEvent)">
+            <summary>
+            Identifies state if specified event occurs.
+            </summary>
+            <param name="event"></param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.ValidateInvariants">
+            <summary>
+            Validates invariants of the object.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.Emit(Sharpee.Framework.DomainModel.Events.IEvent)">
+            <summary>
+            Method to handle event.
+            </summary>
+            <param name="event">event</param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.GetEvents">
+            <summary>
+            Returns all object events.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.ClearEvents">
+            <summary>
+            Clears all object events.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.Equals(System.Object)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="obj">other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.AggregateRoot`1.GetHashCode">
+            <summary>
+            Returns object hash code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Entities.Entity`1">
+            <summary>
+            Abstract class to be inherited by entities.
+            </summary>
+            <typeparam name="TId">Type of aggregate root Id</typeparam>
+        </member>
+        <member name="P:Sharpee.Framework.DomainModel.Entities.Entity`1.Id">
+            <summary>
+            Type of entity Id
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.#ctor(System.Action{Sharpee.Framework.DomainModel.Events.IEvent})">
+            <summary>
+            Initiates an entity which gets its logic on event ocurring from outside.
+            </summary>
+            <param name="eventLogic">Logic to be happened when an event emits.</param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.SetStateByEvent(Sharpee.Framework.DomainModel.Events.IEvent)">
+            <summary>
+            Identifies state if specified event occurs.
+            </summary>
+            <param name="event"></param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.Emit(Sharpee.Framework.DomainModel.Events.IEvent)">
+            <summary>
+            Method to handle event.
+            </summary>
+            <param name="event">event</param>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.Equals(System.Object)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="obj">other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Entities.Entity`1.GetHashCode">
+            <summary>
+            Returns object hash code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Events.EventDispatcher">
+            <summary>
+            It can dispatch all events of an aggregate root.
+            </summary>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.Events.EventDispatcher.Dispatch``1(``0[])">
+            <summary>
+            Dispatches all events of an aggregate root.
+            </summary>
+            <typeparam name="TEvent"></typeparam>
+            <param name="events"></param>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Events.IEvent">
+            <summary>
+            Interface which every event has to implement it to get recognized as an event.
+            </summary>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Events.IEventDispatcher">
+            <summary>
+            Interface that should be implemented by every dispatcher class.
+            </summary>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.Events.IEventHandler`1">
+            <summary>
+            Interface that every EventHandler class should implement it in order to be recognized as an event handler.
+            </summary>
+            <typeparam name="TEvent"></typeparam>
+        </member>
+        <member name="T:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1">
+            <summary>
+            Abstract class to be inherited by value objects.
+            </summary>
+            <typeparam name="TValueObject">Type of value object</typeparam>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.Equals(System.Object)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="obj">other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.Equals(`0)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="other">other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.DoesEqualTo(`0)">
+            <summary>
+            Checks equality of object with another object.
+            </summary>
+            <param name="otherObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.GetHashCode">
+            <summary>
+            Returns object hash code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sharpee.Framework.DomainModel.ValueObjects.ValueObject`1.SetHashCode">
+            <summary>
+            Returns value object hash code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.OK">
+            <summary>
+            Not an error; returned on success.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.Cancelled">
+            <summary>
+            The operation was cancelled (typically by the caller).
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.Unknown">
+            <summary>
+            Unknown error. An example of where this error may be returned is if a Status 
+            value received from another address space belongs to an error-space that is not 
+            known in this address space. Also errors raised by APIs that do not return enough 
+            error information may be converted to this error.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.InvalidArgument">
+            <summary>
+            Client specified an invalid argument. Note that this differs from FAILED_PRECONDITION. 
+            INVALID_ARGUMENT indicates arguments that are problematic regardless of the state 
+            of the system (e.g., a malformed file name).
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.DeadlineExceeded">
+            <summary>
+            Deadline expired before operation could complete. For operations that change 
+            the state of the system, this error may be returned even if the operation has 
+            completed successfully. For example, a successful response from a server could 
+            have been delayed long enough for the deadline to expire.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.NotFound">
+            <summary>
+            Some requested entity (e.g., file or directory) was not found.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.AlreadyExists">
+            <summary>
+            Some entity that we attempted to create (e.g., file or directory) already exists.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.PermissionDenied">
+            <summary>
+            The caller does not have permission to execute the specified operation. PERMISSION_DENIED 
+            must not be used for rejections caused by exhausting some resource (use RESOURCE_EXHAUSTED 
+            instead for those errors). PERMISSION_DENIED must not be used if the caller can 
+            not be identified (use UNAUTHENTICATED instead for those errors).
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.Unauthenticated">
+            <summary>
+            The request does not have valid authentication credentials for the operation.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.ResourceExhausted">
+            <summary>
+            Some resource has been exhausted, perhaps a per-user quota, or perhaps the entire 
+            file system is out of space.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.FailedPrecondition">
+            <summary>
+            Operation was rejected because the system is not in a state required for the 
+            operation's execution. For example, directory to be deleted may be non-empty, 
+            an rmdir operation is applied to a non-directory, etc.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.Aborted">
+            <summary>
+            The operation was aborted, typically due to a concurrency issue like sequencer 
+            check failures, transaction aborts, etc.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.OutOfRange">
+            <summary>
+            Operation was attempted past the valid range. E.g., seeking or reading past end of file.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.Unimplemented">
+            <summary>
+            Operation is not implemented or not supported/enabled in this service.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.Internal">
+            <summary>
+            Internal errors. Means some invariants expected by underlying system has been 
+            broken. If you see one of these errors, something is very broken.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.Unavailable">
+            <summary>
+            The service is currently unavailable. This is a most likely a transient condition 
+            and may be corrected by retrying with a backoff. Note that it is not always safe 
+            to retry non-idempotent operations.
+            </summary>
+        </member>
+        <member name="F:Framework.DomainModel.Entities.ExceptionStatus.DataLoss">
+            <summary>
+            Unrecoverable data loss or corruption.
+            </summary>
+        </member>
+        <member name="T:Framework.DomainModel.Entities.IAuditable`1">
+            <summary>
+            Adds auditing properties to inherited class
+            </summary>
+            <typeparam name="T">Type of auditer's id</typeparam>
+        </member>
+        <member name="P:Framework.DomainModel.Entities.IAuditable`1.CreatedBy">
+            <summary>
+            Creator's id
+            </summary>
+        </member>
+        <member name="P:Framework.DomainModel.Entities.IAuditable`1.CreatedOn">
+            <summary>
+            Creation date
+            </summary>
+        </member>
+        <member name="P:Framework.DomainModel.Entities.IAuditable`1.ModifiedBy">
+            <summary>
+            Modifier's id
+            </summary>
+        </member>
+        <member name="P:Framework.DomainModel.Entities.IAuditable`1.ModifiedOn">
+            <summary>
+            Modification date
+            </summary>
+        </member>
+    </members>
+</doc>
